@@ -29,6 +29,7 @@ $icons = (new CList())
 				(new CSubmitButton(SPACE))->addClass(ZBX_STYLE_BTN_SEARCH)
 			])
 	)
+/*
 	->addItem(
 		(new CLink('Share', 'https://share.zabbix.com/'))
 			->addClass(ZBX_STYLE_TOP_NAV_ZBBSHARE)
@@ -41,7 +42,7 @@ $icons = (new CList())
 			->setAttribute('target', '_blank')
 			->setAttribute('title', _('Help'))
 	);
-
+*/
 if (!$data['user']['is_guest']) {
 	$icons->addItem(
 		(new CLink(SPACE, 'profile.php'))

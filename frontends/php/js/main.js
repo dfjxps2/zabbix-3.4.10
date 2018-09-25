@@ -101,6 +101,30 @@ var PageRefresh = {
 	}
 };
 
+function moveSubMenu(){
+        //alert("12312")
+    var lef = 251;
+    jQuery("#mmenu .top-nav li").each(function(i){
+        var o = jQuery(this);
+        if(o.hasClass("selected")){
+            lef += o.width() / 2;
+            return false;
+        }else{
+            lef += o.width();
+        }
+    });
+    jQuery(".top-subnav-container").css('left', lef);
+}
+
+function testDisplay(){
+    jQuery(".top-subnav-container").css('display','block');
+    //alert("123231");
+    jQuery(".nav").mouseleave(function () {
+        jQuery(".top-subnav-container").css('display','none');
+    });
+    //event.stopPropagation(); //阻止事件向上冒泡
+}
+
 /*
  * Main menu
  */
@@ -113,7 +137,7 @@ var MMenu = {
 
 	mouseOver: function(show_label) {
 		clearTimeout(this.timeout_reset);
-		this.timeout_change = setTimeout('MMenu.showSubMenu("' + show_label + '")', 10);
+		this.timeout_change = setTimeout('MMenu.showSubMenu("' + show_label + '");testDisplay();moveSubMenu();', 10);
 		PageRefresh.restart();
 	},
 

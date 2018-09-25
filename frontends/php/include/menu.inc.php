@@ -56,13 +56,13 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 					'url' => 'overview.php',
 					'label' => _('Overview')
 				],
-				[
+				/*[
 					'url' => 'zabbix.php',
 					'action' => 'web.view',
 					'active_if' => ['web.view'],
 					'label' => _('Web'),
 					'sub_pages' => ['httpdetails.php']
-				],
+				],*/
 				[
 					'url' => 'latest.php',
 					'label' => _('Latest data'),
@@ -97,7 +97,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 					'label' => _('Maps'),
 					'sub_pages' => ['image.php', 'sysmaps.php', 'sysmap.php', 'map.php', 'map.import.php']
 				],
-				[
+				/*[
 					'url' => 'zabbix.php',
 					'action' => 'discovery.view',
 					'active_if' => ['discovery.view'],
@@ -109,7 +109,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 					'active_if' => ['report.services'],
 					'label' => _('Services'),
 					'sub_pages' => ['chart5.php']
-				],
+				],*/
 				[
 					'url' => 'chart3.php'
 				],
@@ -124,7 +124,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 				]
 			]
 		],
-		'cm' => [
+		/*'cm' => [
 			'label' => _('Inventory'),
 			'user_type' => USER_TYPE_ZABBIX_USER,
 			'default_page_id' => 0,
@@ -138,7 +138,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 					'label' => _('Hosts')
 				]
 			]
-		],
+		],*/
 		'reports' => [
 			'label' => _('Reports'),
 			'user_type' => USER_TYPE_ZABBIX_USER,
@@ -218,15 +218,15 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 						'popup_httpstep.php'
 					]
 				],
-				[
+				/*[
 					'url' => 'maintenance.php',
 					'label' => _('Maintenance')
-				],
+				],*/
 				[
 					'url' => 'actionconf.php',
 					'label' => _('Actions')
 				],
-				[
+				/*[
 					'user_type' => USER_TYPE_SUPER_ADMIN,
 					'url' => 'correlation.php',
 					'label' => _('Event correlation')
@@ -238,7 +238,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 				[
 					'url' => 'services.php',
 					'label' => _('Services')
-				]
+				]*/
 			]
 		],
 		'admin' => [
@@ -262,7 +262,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 						'adm.other.php'
 					]
 				],
-				[
+				/*[
 					'url' => 'zabbix.php',
 					'action' => 'proxy.list',
 					'active_if' => ['proxy.edit', 'proxy.list'],
@@ -271,7 +271,7 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 				[
 					'url' => 'authentication.php',
 					'label' => _('Authentication')
-				],
+				],*/
 				[
 					'url' => 'usergrps.php',
 					'label' => _('User groups')
@@ -291,11 +291,11 @@ function zbx_construct_menu(&$main_menu, &$sub_menus, &$page, $action = null) {
 					'action' => 'script.list',
 					'active_if' => ['script.edit', 'script.list'],
 					'label' => _('Scripts')
-				],
-				[
+				]
+				/*[
 					'url' => 'queue.php',
 					'label' => _('Queue')
-				]
+				]*/
 			]
 		],
 		'login' => [
