@@ -25,7 +25,8 @@ $page_title = $data['page']['title'];
 if (isset($ZBX_SERVER_NAME) && $ZBX_SERVER_NAME !== '') {
 	$page_title = $ZBX_SERVER_NAME.NAME_DELIMITER.$page_title;
 }
-
+//修改title
+$page_title = '统一监控系统';
 $pageHeader = new CPageHeader($page_title);
 
 $scripts = $data['javascript']['files'];

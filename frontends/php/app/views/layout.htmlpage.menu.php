@@ -28,26 +28,25 @@ $icons = (new CList())
 					->addClass(ZBX_STYLE_SEARCH),
 				(new CSubmitButton(SPACE))->addClass(ZBX_STYLE_BTN_SEARCH)
 			])
-	)
-/*
-	->addItem(
-		(new CLink('Share', 'https://share.zabbix.com/'))
+	);
+/*	->addItem(
+		(new CLink('Share', ' '))
 			->addClass(ZBX_STYLE_TOP_NAV_ZBBSHARE)
 			->setAttribute('target', '_blank')
-			->setAttribute('title', _('Zabbix Share'))
+			->setAttribute('title', _('seabox'))
 	)
 	->addItem(
-		(new CLink(SPACE, 'http://www.zabbix.com/documentation/3.4/'))
+		(new CLink(SPACE, ' '))
 			->addClass(ZBX_STYLE_TOP_NAV_HELP)
 			->setAttribute('target', '_blank')
 			->setAttribute('title', _('Help'))
-	);
-*/
+	);*/
+
 if (!$data['user']['is_guest']) {
 	$icons->addItem(
 		(new CLink(SPACE, 'profile.php'))
 			->addClass(ZBX_STYLE_TOP_NAV_PROFILE)
-			->setAttribute('title', getUserFullname($data['user']))
+			->setAttribute('title', getUserFullname($data['user'] )) //getUserFullname($data['user']
 	);
 }
 
@@ -71,9 +70,11 @@ $top_menu = (new CDiv())
 	->addClass(ZBX_STYLE_TOP_NAV_CONTAINER)
 	->setId('mmenu');
 
-$sub_menu_div = (new CDiv())
+
+   $sub_menu_div = (new CDiv())
 	->addClass(ZBX_STYLE_TOP_SUBNAV_CONTAINER)
-	->onMouseover('javascript: MMenu.submenu_mouseOver();')
+	//->onMouseover()
+   ->onMouseover('javascript: MMenu.submenu_mouseOver();')
 	->onMouseout('javascript: MMenu.mouseOut();');
 
 // 2nd level menu
