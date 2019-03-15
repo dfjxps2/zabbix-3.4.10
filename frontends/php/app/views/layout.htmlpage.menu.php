@@ -28,27 +28,40 @@ $icons = (new CList())
 					->addClass(ZBX_STYLE_SEARCH),
 				(new CSubmitButton(SPACE))->addClass(ZBX_STYLE_BTN_SEARCH)
 			])
-	)
-	->addItem(
-		(new CLink('Share', 'https://share.zabbix.com/'))
+	);
+/*	->addItem(
+		(new CLink('Share', ' '))
 			->addClass(ZBX_STYLE_TOP_NAV_ZBBSHARE)
 			->setAttribute('target', '_blank')
-			->setAttribute('title', _('Zabbix Share'))
+			->setAttribute('title', _('seabox'))
 	)
 	->addItem(
-		(new CLink(SPACE, 'http://www.zabbix.com/documentation/3.4/'))
+		(new CLink(SPACE, ' '))
 			->addClass(ZBX_STYLE_TOP_NAV_HELP)
 			->setAttribute('target', '_blank')
 			->setAttribute('title', _('Help'))
-	);
-
+	);*/
+$zzz=array("admmmin");
 if (!$data['user']['is_guest']) {
 	$icons->addItem(
 		(new CLink(SPACE, 'profile.php'))
 			->addClass(ZBX_STYLE_TOP_NAV_PROFILE)
-			->setAttribute('title', getUserFullname($data['user']))
+			->setAttribute('title', getUserFullname($data['user'] )) //getUserFullname($data['user']
 	);
+/*        ->addItem((new CList($zzz))->addClass(ZBX_STYLE_TOP_ADMIN)
+    )*/
+
 }
+//添加用户信息
+$test1=array(
+    "test"=>array("test1"=>"Admin")
+);
+$test2=array(getUsername($data['user']));
+$icons->addItem(
+    (new Clist($test2))
+        ->addClass(ZBX_STYLE_TOP_ADMIN)
+);
+
 
 $icons->addItem(
 	(new CLink(SPACE, 'index.php?reconnect=1'))
@@ -57,22 +70,51 @@ $icons->addItem(
 		->addSID()
 );
 
+//添加退出信息
+$test3=array(
+    "test"=>array("test1"=>"退出")
+);
+$icons->addItem(
+    (new CLink('退出', 'index.php?reconnect=1'))
+        ->addClass(ZBX_STYLE_TOP_LOGOUT)
+        ->addSID()
+);
+
+$test=array(
+    "test"=>array("test1"=>"统一监控系统")
+);
+$ctest=array("cteset1">="统一监控系统");
 // 1st level menu
 $top_menu = (new CDiv())
+    ->addItem(
+        (new CLink((new CDiv())->addClass(ZBX_STYLE_LOGO), 'zabbix.php?action=dashboard.view'))
+            ->addClass(ZBX_STYLE_HEADER_LOGO)
+    )
 	->addItem(
-		(new CLink((new CDiv())->addClass(ZBX_STYLE_LOGO), 'zabbix.php?action=dashboard.view'))
-			->addClass(ZBX_STYLE_HEADER_LOGO)
+        //(new CList($test['test']['test1']))
+        (new CList($test))
+            ->addClass(ZBX_STYLE_HEADER_LOGO_TEXT)
+		/*(new CLink((new CDiv())->addClass(ZBX_STYLE_LOGO), 'zabbix.php?action=dashboard.view'))
+			->addClass(ZBX_STYLE_HEADER_LOGO)*/
 	)
+    ->addItem($icons)
+    //一级菜单
 	->addItem(
-		(new CList($data['menu']['main_menu']))->addClass(ZBX_STYLE_TOP_NAV)
+		(new CList($data['menu']['main_menu']))
+            ->addClass(ZBX_STYLE_TOP_NAV)
+       // ->Item((new CList($data['menu']['main_menu']))->addClass(ZBX_STYLE_TOP_NAV))
+       //->addItem((new CList($zzz))->addClass(ZBX_STYLE_TOP_ADMIN)
+       //->addItem((new CList($zzz)))
 	)
 	->addItem($icons)
 	->addClass(ZBX_STYLE_TOP_NAV_CONTAINER)
 	->setId('mmenu');
 
-$sub_menu_div = (new CDiv())
+
+   $sub_menu_div = (new CDiv())
 	->addClass(ZBX_STYLE_TOP_SUBNAV_CONTAINER)
-	->onMouseover('javascript: MMenu.submenu_mouseOver();')
+	//->onMouseover()
+   ->onMouseover('javascript: MMenu.submenu_mouseOver();')
 	->onMouseout('javascript: MMenu.mouseOut();');
 
 // 2nd level menu

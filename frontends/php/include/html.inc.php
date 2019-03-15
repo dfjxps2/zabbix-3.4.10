@@ -625,7 +625,7 @@ function getHostGroupLifetimeIndicator($current_time, $ts_delete) {
 	else {
 		$warning = _s(
 			'The host group is not discovered anymore and will be deleted in %1$s (on %2$s at %3$s).',
-			zbx_date2age($current_time, $ts_delete),
+			zbx_date2age($ts_delete),
 			zbx_date2str(DATE_FORMAT, $ts_delete),
 			zbx_date2str(TIME_FORMAT, $ts_delete)
 		);
@@ -652,7 +652,7 @@ function getHostLifetimeIndicator($current_time, $ts_delete) {
 	else {
 		$warning = _s(
 			'The host is not discovered anymore and will be deleted in %1$s (on %2$s at %3$s).',
-			zbx_date2age($current_time, $ts_delete),
+			zbx_date2age($ts_delete),
 			zbx_date2str(DATE_FORMAT, $ts_delete),
 			zbx_date2str(TIME_FORMAT, $ts_delete)
 		);
@@ -679,7 +679,7 @@ function getApplicationLifetimeIndicator($current_time, $ts_delete) {
 	else {
 		$warning = _s(
 			'The application is not discovered anymore and will be deleted in %1$s (on %2$s at %3$s).',
-			zbx_date2age($current_time, $ts_delete),
+			zbx_date2age($ts_delete),
 			zbx_date2str(DATE_FORMAT, $ts_delete),
 			zbx_date2str(TIME_FORMAT, $ts_delete)
 		);
@@ -706,7 +706,7 @@ function getItemLifetimeIndicator($current_time, $ts_delete) {
 	else {
 		$warning = _s(
 			'The item is not discovered anymore and will be deleted in %1$s (on %2$s at %3$s).',
-			zbx_date2age($current_time, $ts_delete),
+			zbx_date2age($ts_delete),
 			zbx_date2str(DATE_FORMAT, $ts_delete),
 			zbx_date2str(TIME_FORMAT, $ts_delete)
 		);
@@ -806,10 +806,11 @@ function createDateSelector($name, $date, $relatedCalendar = null) {
 function makePageFooter($with_version = true)
 {
 	return (new CDiv([
-		$with_version ? 'Zabbix '.ZABBIX_VERSION.'. ' : null,
-		'&copy; '.ZABBIX_COPYRIGHT_FROM.'&ndash;'.ZABBIX_COPYRIGHT_TO.', ',
-		(new CLink('Zabbix SIA', 'http://www.zabbix.com/'))
-			->addClass(ZBX_STYLE_GREY)
+		/*$with_version ? ''.ZABBIX_VERSION.'. ' : null,
+		'&copy; '.ZABBIX_COPYRIGHT_FROM.'&ndash;'.ZABBIX_COPYRIGHT_TO.', ',*/
+		//北京泰豪智能工程有限公司 页面底部版权
+		(new CLink(''))
+			->addClass(ZBX_STYLE_GREE)
 			->addClass(ZBX_STYLE_LINK_ALT)
 			->setAttribute('target', '_blank')
 	]))->addClass(ZBX_STYLE_FOOTER);

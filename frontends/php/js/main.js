@@ -101,21 +101,78 @@ var PageRefresh = {
 	}
 };
 
+function moveSubMenu(){
+	//alert("12312")
+    var lef = 240;
+    jQuery("#mmenu .top-nav li").each(function(i){
+        var o = jQuery(this);
+        if(o.hasClass("selected")){
+            lef += o.width() / 2;
+            return false;
+        }else{
+            lef += o.width();
+        }
+    });
+    jQuery(".top-subnav-container").css('left', lef);
+}
+//二级菜单的隐藏操作
+function testDisplay(){
+    jQuery(".top-subnav-container").css('display','block');
+    //alert("123231");
+    jQuery(".nav").mouseleave(function () {
+        jQuery(".top-subnav-container").css('display','none');
+    });
+    //event.stopPropagation(); //阻止事件向上冒泡
+}
+
+function testDis(){
+    jQuery(".top-subnav-container").css('display','none');
+}
+
+/*$(".top-subnav-container").click(function(event) {
+
+    event.stopPropagation(); //阻止事件向上冒泡
+});*/
 /*
  * Main menu
  */
 var MMenu = {
-	menus:			{'view': 0, 'cm': 0, 'reports': 0, 'config': 0, 'admin': 0},
+	menus:			{'view': 0, 'cm': 0, 'reports': 0, 'config': 0, 'admin': 0, 'bigData':0},//此处为一级菜单定义
 	def_label:		null,
 	sub_active: 	false,
 	timeout_reset:	null,
 	timeout_change:	null,
 
+	cs:function(){
+		var lef = 250;
+		jQuery("#mmenu .top-nav li").each(function(i){
+			var o = jQuery(this);
+			if(o.hasClass("selected")){
+				lef += o.width() / 2;
+				return false;
+			}else{
+				lef += o.width();
+			}
+		});
+		jQuery(".top-subnav-container").css('left', lef);
+	},
+
 	mouseOver: function(show_label) {
 		clearTimeout(this.timeout_reset);
-		this.timeout_change = setTimeout('MMenu.showSubMenu("' + show_label + '")', 10);
+		this.timeout_change = setTimeout('MMenu.showSubMenu("' + show_label + '");testDisplay();moveSubMenu();', 10);
+		//页面跳出，跳转到统一日志
+        if("bigData"==show_label){
+            jQuery('#sub_' + show_label).attr('onclick','').unbind('click');
+            var sub_menu_li =jQuery('#sub_' + show_label).find("a");
+            sub_menu_li.attr("target","_blank");
+            jQuery('#sub_' + show_label).attr('onclick',function(){
+                sub_menu_li.css("display","none");
+                window.open(sub_menu_li.attr("href"));
+            }).unbind('click');
+        }
 		PageRefresh.restart();
 	},
+
 
 	submenu_mouseOver: function() {
 		clearTimeout(this.timeout_reset);

@@ -51,7 +51,7 @@ define('ELASTICSEARCH_RESPONSE_DOCUMENTS',		2);
 define('ZBX_WIDGET_ROWS', 20);
 
 define('ZBX_FONTPATH',				realpath('fonts')); // where to search for font (GD > 2.0.18)
-define('ZBX_GRAPH_FONT_NAME',		'DejaVuSans'); // font file name
+define('ZBX_GRAPH_FONT_NAME',		'simsun'); // font file name
 define('ZBX_GRAPH_LEGEND_HEIGHT',	120); // when graph height is less then this value, some legend will not show up
 
 define('ZBX_SCRIPT_TIMEOUT',		60); // in seconds
@@ -100,7 +100,7 @@ define('EVENTS_OPTION_NOEVENT', 1);
 define('EVENTS_OPTION_ALL',		2);
 define('EVENTS_OPTION_NOT_ACK', 3);
 
-define('ZBX_FONT_NAME', 'DejaVuSans');
+define('ZBX_FONT_NAME', 'graphfont');
 
 define('ZBX_AUTH_INTERNAL',	0);
 define('ZBX_AUTH_LDAP',		1);
@@ -1360,8 +1360,10 @@ define('ZBX_STYLE_FOOTER', 'footer');
 define('ZBX_STYLE_GREEN', 'green');
 define('ZBX_STYLE_GREEN_BG', 'green-bg');
 define('ZBX_STYLE_GREY', 'grey');
+define('ZBX_STYLE_GREE', 'gree');
 define('ZBX_STYLE_TEAL', 'teal');
 define('ZBX_STYLE_HEADER_LOGO', 'header-logo');
+define('ZBX_STYLE_HEADER_LOGO_TEXT', 'header-logo-text');
 define('ZBX_STYLE_HEADER_TITLE', 'header-title');
 define('ZBX_STYLE_HIDDEN', 'hidden');
 define('ZBX_STYLE_HIGH_BG', 'high-bg');
@@ -1468,6 +1470,8 @@ define('ZBX_STYLE_TIMELINE_TD', 'timeline-td');
 define('ZBX_STYLE_TIMELINE_TH', 'timeline-th');
 define('ZBX_STYLE_TOP', 'top');
 define('ZBX_STYLE_TOP_NAV', 'top-nav');
+define('ZBX_STYLE_TOP_ADMIN', 'top-admin');
+define('ZBX_STYLE_TOP_LOGOUT', 'top-log');
 define('ZBX_STYLE_TOP_NAV_CONTAINER', 'top-nav-container');
 define('ZBX_STYLE_TOP_NAV_HELP', 'top-nav-help');
 define('ZBX_STYLE_TOP_NAV_ICONS', 'top-nav-icons');

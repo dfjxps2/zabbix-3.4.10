@@ -166,6 +166,21 @@ function getUserFullname($userData) {
 	return zbx_empty($fullname) ? $userData['alias'] : $userData['alias'].' ('.$fullname.')';
 }
 
+function getUsername($userData) {
+    if (!zbx_empty($userData['surname'])) {
+        if (!zbx_empty($userData['name'])) {
+            return $userData['alias'];
+        }
+
+        $fullname = $userData['surname'];
+    }
+    else {
+        $fullname = zbx_empty($userData['name']) ? '' : $userData['name'];
+    }
+
+    return zbx_empty($fullname) ? $userData['alias'] : $userData['alias'];
+}
+
 /**
  * Returns the list of permissions to the host groups for selected user groups.
  *
